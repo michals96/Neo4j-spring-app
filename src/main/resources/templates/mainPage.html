@@ -6,13 +6,16 @@
     <link th:href="@{/styles/cssandjs/main.css}" rel="stylesheet" />
 </head>
 <body>
+<script th:inline="javascript">
+    var moviesList = /*[[${moviesList}]]*/;
+</script>
 <div role="navigation" class="navbar navbar-default navbar-static-top">
     <div class="row">
         <div class="col-sm col-md-3">
             <ul class="nav navbar-nav">
                 <li>
                     <form role="all" class="navbar-form" id="all">
-                        <button class="btn btn-default" type="submit">Show all movies</button>
+                        <button class="btn btn-default" type="button" th:onclick="appendToTable(moviesList)">Show all movies</button>
                     </form>
                     <form role="search" class="navbar-form" id="search">
                         <div class="form-group">
