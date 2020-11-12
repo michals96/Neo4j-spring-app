@@ -5,21 +5,19 @@
     <title>Get Studios</title>
 </head>
 <body>
-<div>This is get studios:)</div>
+<div>This is testing page</div>
 <table>
     <thead>
     <tr>
-        <th> Title </th>
-        <th> Author </th>
+        <th> Testing objects </th>
     </tr>
     </thead>
     <tbody>
-    <tr th:if="${studiosList.empty}">
+    <tr th:if="${testList.empty}">
         <td colspan="2"> No Books Available </td>
     </tr>
-    <tr th:each="studio : ${studiosList}">
-        <td><span th:text="${studio}"> Title </span></td>
-        <td><span th:text="${studio}"> Author </span></td>
+    <tr th:each="object : ${testList}">
+        <td><span th:text="${object}"> Title </span></td>
     </tr>
     </tbody>
 </table>

@@ -2,13 +2,9 @@ package com.example.demo.controllers;
 
 import org.neo4j.driver.Driver;
 import org.neo4j.driver.Session;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 @Controller
 public class MovieLibraryController {
@@ -21,7 +17,7 @@ public class MovieLibraryController {
     @GetMapping(value = "/testpage")
     public String getStudios(Model model) throws Exception {
         try (Session session = driver.session()){
-            model.addAttribute("studiosList",session.run("MATCH (n:Studio) RETURN n LIMIT 25").list(r -> r.get("n").asNode().get("name").asString()));
+            model.addAttribute("testList",session.run("MATCH (n:Studio) RETURN n LIMIT 25").list(r -> r.get("n").asNode().get("name").asString()));
         }
         return "testpage";
     }
