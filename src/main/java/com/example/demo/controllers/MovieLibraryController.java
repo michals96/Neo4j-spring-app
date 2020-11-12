@@ -39,4 +39,12 @@ public class MovieLibraryController {
         model.addAttribute("name", name);
         return "greeting";
     }
+
+    @GetMapping("/getMovies")
+    public String getMovies(Model model){
+        try(Session session = driver.session()){
+            model.addAttribute("moviesList", session.run("MATCH (n:Anime) RETURN n LIMIT 25").list(r -> r.get("n").asNode().get("title").asString()));
+        }
+        return "getMovies";
+    }
 }
