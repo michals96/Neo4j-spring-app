@@ -45,6 +45,6 @@ public class MovieLibraryController {
         try(Session session = driver.session()){
             model.addAttribute("moviesList", session.run("MATCH (n:Anime) RETURN n LIMIT 25").list(r -> r.get("n").asNode().get("title").asString()));
         }
-        return "getMovies";
+        return "mainPage";
     }
 }

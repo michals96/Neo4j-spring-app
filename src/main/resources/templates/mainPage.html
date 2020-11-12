@@ -1,0 +1,85 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteka filmowa</title>
+    <script type="text/javascript" th:src="@{/styles/cssandjs/actions.js}"></script>
+    <link th:href="@{/styles/cssandjs/main.css}" rel="stylesheet" />
+</head>
+<body>
+<div role="navigation" class="navbar navbar-default navbar-static-top">
+    <div class="row">
+        <div class="col-sm col-md-3">
+            <ul class="nav navbar-nav">
+                <li>
+                    <form role="all" class="navbar-form" id="all">
+                        <button class="btn btn-default" type="submit">Show all movies</button>
+                    </form>
+                    <form role="search" class="navbar-form" id="search">
+                        <div class="form-group">
+                            <input type="text" value="" placeholder="Find by title" class="form-control" name="search">
+                        </div>
+                        <button class="btn btn-default" type="submit">Search</button>
+                    </form>
+                    <form role="search_year" class="navbar-form" id="search_year">
+                        <div class="form-group">
+                            <input type="text" value="" placeholder="Find by year of production" class="form-control" name="search_year">
+                        </div>
+                        <button class="btn btn-default" type="submit">Search</button>
+                    </form>
+                    <form role="search_score" class="navbar-form" id="search_score">
+                        <div class="form-group">
+                            <input type="text" value="" placeholder="Find by rate" class="form-control" name="search_score">
+                        </div>
+                        <button class="btn btn-default" type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div class="center-block">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">Neo4j database movie library</div>
+            <table id="results" class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Year of production</th>
+                    <th>Rate</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading" id="title">Details</div>
+            <div class="row">
+                <div class="col-sm col-md-1">
+                    <h1>Studio</h1>
+                    <div id="studio"></div>
+                </div>
+                <div class="col-md-5 col-sm">
+                    <h1>Cast</h1>
+                    <ul id="crew">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .node { stroke: #222; stroke-width: 1.5px; }
+    .node.actor { fill: #888; }
+    .node.movie { fill: #BBB; }
+    .link { stroke: #999; stroke-opacity: .6; stroke-width: 1px; }
+</style>
+
+</body>
+</html>
