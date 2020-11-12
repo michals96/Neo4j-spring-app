@@ -18,25 +18,12 @@ public class MovieLibraryController {
         this.driver = driver;
     }
 
-    @GetMapping(value = "/movieLibrary", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<String> getActors() throws Exception {
-        try (Session session = driver.session()){
-            return session.run("MATCH (n:Anime) RETURN n LIMIT 25").list(r -> r.get("n").asNode().get("title").asString());
-        }
-    }
-
-    @GetMapping(value = "/getStudios")
+    @GetMapping(value = "/testpage")
     public String getStudios(Model model) throws Exception {
         try (Session session = driver.session()){
             model.addAttribute("studiosList",session.run("MATCH (n:Studio) RETURN n LIMIT 25").list(r -> r.get("n").asNode().get("name").asString()));
         }
-        return "getStudios";
-    }
-
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-        model.addAttribute("name", name);
-        return "greeting";
+        return "testpage";
     }
 
     @GetMapping("/")
