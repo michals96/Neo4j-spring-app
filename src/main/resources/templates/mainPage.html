@@ -5,7 +5,7 @@
     <script type="text/javascript" th:src="@{/styles/cssandjs/actions.js}"></script>
     <link th:href="@{/styles/cssandjs/main.css}" rel="stylesheet" />
 </head>
-<body>
+<body onload="onload();">
 <script th:inline="javascript">
     var moviesNames = /*[[${moviesNames}]]*/;
     var moviesScores = /*[[${moviesScores}]]*/;
@@ -21,9 +21,9 @@
                     </form>
                     <form role="search" class="navbar-form" id="search">
                         <div class="form-group">
-                            <input type="text" value="" placeholder="Find by title" class="form-control" name="search">
+                            <input type="text" value="" placeholder="Find by title" class="form-control" name="search" id="search_title">
                         </div>
-                        <button class="btn btn-default" type="submit">Search</button>
+                        <button class="btn btn-default" type="button" value="click" onclick="searchByTitle(moviesNames, moviesScores, moviesRelease);">Search</button>
                     </form>
                     <form role="search_year" class="navbar-form" id="search_year">
                         <div class="form-group">
