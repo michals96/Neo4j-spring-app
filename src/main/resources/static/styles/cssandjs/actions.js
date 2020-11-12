@@ -12,8 +12,10 @@ for (i = 0; i < moviesList.length; i++) {
 }
 
 function appendToTable(moviesNames, moviesScores, moviesRelease){
+
 var table = document.getElementById("tablebody");
 for (i = 0; i < moviesNames.length; i++) {
+
         var row = table.insertRow(i);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
@@ -26,7 +28,7 @@ for (i = 0; i < moviesNames.length; i++) {
 
 function searchByTitle(moviesNames, moviesScores, moviesRelease){
     var title = document.getElementById('search_title').value;
-    document.getElementById("results").innerHTML = "";
+    document.getElementById("tablebody").innerHTML = "";
     var table = document.getElementById("tablebody");
 
     for (i = 0; i < moviesNames.length; i++) {
@@ -44,7 +46,7 @@ function searchByTitle(moviesNames, moviesScores, moviesRelease){
 
 function searchByYear(moviesNames, moviesScores, moviesRelease){
     var date = document.getElementById('search_year').value;
-    document.getElementById("results").innerHTML = "";
+    document.getElementById("tablebody").innerHTML = "";
     var table = document.getElementById("tablebody");
     var counter = 0;
 
@@ -64,7 +66,7 @@ function searchByYear(moviesNames, moviesScores, moviesRelease){
 
 function searchByScore(moviesNames, moviesScores, moviesRelease){
     var score = document.getElementById('search_score').value;
-    document.getElementById("results").innerHTML = "";
+    document.getElementById("tablebody").innerHTML = "";
     var table = document.getElementById("tablebody");
     var counter = 0;
 
