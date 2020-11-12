@@ -11,15 +11,15 @@ for (i = 0; i < moviesList.length; i++) {
     document.getElementById("movies").innerHTML = html;
 }
 
-function appendToTable(moviesList){
+function appendToTable(moviesNames, moviesScores, moviesRelease){
 var table = document.getElementById("results");
-for (i = 0; i < moviesList.length; i++) {
+for (i = 0; i < moviesNames.length; i++) {
         var row = table.insertRow(i+1);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
-        cell1.innerHTML = moviesList[i];
-        cell2.innerHTML = moviesList[i];
-        cell3.innerHTML = moviesList[i];
+        cell1.innerHTML = moviesNames[i];
+        cell2.innerHTML = moviesRelease[i];
+        cell3.innerHTML = moviesScores[i];
     }
 }

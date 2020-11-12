@@ -7,7 +7,9 @@
 </head>
 <body>
 <script th:inline="javascript">
-    var moviesList = /*[[${moviesList}]]*/;
+    var moviesNames = /*[[${moviesNames}]]*/;
+    var moviesScores = /*[[${moviesScores}]]*/;
+    var moviesRelease = /*[[${moviesRelease}]]*/;
 </script>
 <div role="navigation" class="navbar navbar-default navbar-static-top">
     <div class="row">
@@ -15,7 +17,7 @@
             <ul class="nav navbar-nav">
                 <li>
                     <form role="all" class="navbar-form" id="all">
-                        <button class="btn btn-default" type="button" th:onclick="appendToTable(moviesList)">Show all movies</button>
+                        <button class="btn btn-default" type="button" th:onclick="appendToTable(moviesNames, moviesScores, moviesRelease)">Show all movies</button>
                     </form>
                     <form role="search" class="navbar-form" id="search">
                         <div class="form-group">
