@@ -11,9 +11,10 @@
     var moviesNames = /*[[${moviesNames}]]*/;
     var moviesScores = /*[[${moviesScores}]]*/;
     var moviesRelease = /*[[${moviesRelease}]]*/;
+    var movieDirector = /*[[${movieDirector}]]*/;
 </script>
 <form th:action="@{/}">
-    <input type="text" th:name="participant"/>
+    <input type="text" th:name="movieTitle"/>
     <input type="submit"/>
 </form>
 <div role="navigation" class="navbar navbar-default navbar-static-top">
@@ -41,6 +42,14 @@
                             <input type="text" value="" placeholder="Find by rate" class="form-control" name="search" id="search_score">
                         </div>
                         <button class="btn btn-default" type="button" value="click" onclick="searchByScore(moviesNames, moviesScores, moviesRelease);">Search</button>
+                    </form>
+                    <form th:action="@{/}" role="search_details" class="navbar-form" id="search4">
+                        <div class="form-group">
+                            <input type="text" value="" placeholder="Get details by title" class="form-control" id="get_details" th:name="movieTitle"/>
+                            <!--<input type="submit"/>//-->
+                        </div>
+                        <button class="btn btn-default" type="submit" value="click">Submit</button>
+                        <button class="btn btn-default" type="submit" value="click" onclick="getDetails(movieDirector);">Search</button>
                     </form>
                 </li>
             </ul>

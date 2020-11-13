@@ -20,8 +20,8 @@ for (i = 0; i < moviesNames.length; i++) {
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
-       // cell1.innerHTML = '<a th:href="@{/test(name="value1")}">' + moviesNames[i] + '</a>';
-       cell1.innerHTML = '<h2 id='+i+' value ="mybutton" onclick="krzycze(this.id)">' + moviesNames[i] + '</h2>';
+        cell1.innerHTML = moviesNames[i];
+       //cell1.innerHTML = '<h2 id='+i+' value ="mybutton" onclick="krzycze(this.id)">' + moviesNames[i] + '</h2>';
         cell2.innerHTML = moviesRelease[i];
         cell3.innerHTML = moviesScores[i];
     }
@@ -87,4 +87,8 @@ function searchByScore(moviesNames, moviesScores, moviesRelease){
             counter++;
         }
     }
+}
+
+function getDetails(movieDirector){
+    alert("director -> " + movieDirector);
 }

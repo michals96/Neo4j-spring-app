@@ -23,19 +23,27 @@ public class MovieLibraryController {
     @GetMapping(value = "/testpage")
     public String getStudios(Model model) throws Exception {
         try (Session session = driver.session()){
-            model.addAttribute("testList",session.run("MATCH (n:Studio) RETURN n LIMIT 25").list(r -> r.get("n").asNode().get("name").asString()));
+            model.addAttribute("testList",session.run("MATCH (a:Anime {title: 'K-ON!'}) OPTIONAL MATCH (a)<-[:CREATED]-(x) RETURN x").list(r -> r.get("x").asNode().get("name").asString()));
         }
         return "testpage";
     }
 
     @RequestMapping(value = "/", method = { RequestMethod.GET, RequestMethod.POST } )
-    public String getAllMovies(@RequestParam(value = "participant", required = false) String participant, Model model){
+    public String getAllMovies(@RequestParam(value = "movieTitle", required = false) String movieTitle, Model model){
         try(Session session = driver.session()){
             model.addAttribute("moviesNames",   session.run("MATCH (n:Anime) RETURN n LIMIT 25").list(r -> r.get("n").asNode().get("title").asString()));
             model.addAttribute("moviesScores",  session.run("MATCH (n:Anime) RETURN n LIMIT 25").list(r -> r.get("n").asNode().get("score").asInt()));
             model.addAttribute("moviesRelease", session.run("MATCH (n:Anime) RETURN n LIMIT 25").list(r -> r.get("n").asNode().get("released").asInt()));
+
+            if(movieTitle != null){
+                model.addAttribute("movieDirector", movieTitle);//session.run("MATCH (a:Anime {title: '" + movieTitle +"'}) OPTIONAL MATCH (a)<-[:CREATED]-(x) RETURN x").list(r -> r.get("n").asNode().get("name").asString()));
+                System.out.println("str null");
+            }
+
+                System.out.println("str not null");
+            //MATCH (a:Anime {title: 'K-ON!'}) OPTIONAL MATCH (a)<-[:CREATED]-(x) RETURN x
         }
-        System.out.println("KUPA");
+
         return "mainPage";
     }
 }
