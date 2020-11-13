@@ -36,6 +36,7 @@ public class MovieLibraryController {
                 model.addAttribute("movieStudio", session.run("MATCH (a:Movie {title: '" + movieTitle +"'}) OPTIONAL MATCH (a)<-[:CREATED]-(x) RETURN x").list(r -> r.get("x").asNode().get("name").asString()));
                 model.addAttribute("movieDirector", session.run("MATCH (a:Movie {title: '" + movieTitle +"'}) OPTIONAL MATCH (a)<-[:DIRECTED]-(x) RETURN x").list(r -> r.get("x").asNode().get("name").asString()));
                 model.addAttribute("movieCast", session.run("MATCH (a:Movie {title: '" + movieTitle +"'}) OPTIONAL MATCH (a)<-[:STARRED]-(x) RETURN x").list(r -> r.get("x").asNode().get("name").asString()));
+                model.addAttribute("movieTitle", movieTitle);
                 System.out.println("str null");
             }
 
