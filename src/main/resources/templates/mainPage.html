@@ -14,6 +14,7 @@
     var movieStudio = /*[[${movieStudio}]]*/;
     var movieDirector = /*[[${movieDirector}]]*/;
     var movieCast = /*[[${movieCast}]]*/;
+    var movieTitle = /*[[${movieTitle}]]*/;
 </script>
 <div role="navigation" class="navbar navbar-default navbar-static-top">
     <div class="row">
@@ -49,7 +50,7 @@
                         <button th:action="@{/}" class="btn btn-default" type="submit" value="click" onclick="detailsAlert();">Submit</button>
                     </form>
                     <form role="all" class="navbar-form" id="detailsall">
-                        <button class="btn btn-default" type="button" value="click" onclick="getDetails(movieStudio, movieDirector, movieCast);">Get details</button>
+                        <button class="btn btn-default" type="button" value="click" onclick="detailsByTitle(movieTitle, moviesNames, moviesScores, moviesRelease); getDetails(movieStudio, movieDirector, movieCast);">Get details</button>
                     </form>
 
 
