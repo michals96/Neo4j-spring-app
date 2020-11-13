@@ -43,14 +43,18 @@
                         </div>
                         <button class="btn btn-default" type="button" value="click" onclick="searchByScore(moviesNames, moviesScores, moviesRelease);">Search</button>
                     </form>
-                    <form th:action="@{/}" role="search_details" class="navbar-form" id="search4">
+                    <form role="search_details" class="navbar-form" id="search4">
                         <div class="form-group">
                             <input type="text" value="" placeholder="Get details by title" class="form-control" id="get_details" th:name="movieTitle"/>
                             <!--<input type="submit"/>//-->
                         </div>
-                        <button class="btn btn-default" type="submit" value="click">Submit</button>
-                        <button class="btn btn-default" type="submit" value="click" onclick="getDetails(movieDirector);">Search</button>
+                        <button th:action="@{/}" class="btn btn-default" type="submit" value="click" onclick="detailsAlert();">Submit</button>
                     </form>
+                    <form role="all" class="navbar-form" id="all">
+                        <button class="btn btn-default" type="button" value="click" onclick="getDetails(movieDirector);">Get details</button>
+                    </form>
+
+
                 </li>
             </ul>
         </div>

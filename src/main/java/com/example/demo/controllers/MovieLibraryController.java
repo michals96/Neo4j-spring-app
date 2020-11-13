@@ -36,7 +36,7 @@ public class MovieLibraryController {
             model.addAttribute("moviesRelease", session.run("MATCH (n:Anime) RETURN n LIMIT 25").list(r -> r.get("n").asNode().get("released").asInt()));
 
             if(movieTitle != null){
-                model.addAttribute("movieDirector", movieTitle);//session.run("MATCH (a:Anime {title: '" + movieTitle +"'}) OPTIONAL MATCH (a)<-[:CREATED]-(x) RETURN x").list(r -> r.get("n").asNode().get("name").asString()));
+                model.addAttribute("movieDirector", session.run("MATCH (a:Anime {title: '" + movieTitle +"'}) OPTIONAL MATCH (a)<-[:CREATED]-(x) RETURN x").list(r -> r.get("x").asNode().get("name").asString()));
                 System.out.println("str null");
             }
 

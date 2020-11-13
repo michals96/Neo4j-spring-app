@@ -92,3 +92,8 @@ function searchByScore(moviesNames, moviesScores, moviesRelease){
 function getDetails(movieDirector){
     alert("director -> " + movieDirector);
 }
+
+
+function detailsAlert(){
+    alert("Click GET DETAILS to get more informations");
+}
