@@ -83,7 +83,7 @@ function searchByScore(moviesNames, moviesScores, moviesRelease){
     }
 }
 
-function getDetails(movieDirector){
+function getDetails(movieStudio){
     document.getElementById("detailstablebody").innerHTML = "";
     var table = document.getElementById("detailstablebody");
 
@@ -91,9 +91,9 @@ function getDetails(movieDirector){
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
-    cell1.innerHTML = movieDirector;
-    cell2.innerHTML = movieDirector;
-    cell3.innerHTML = movieDirector;
+    cell1.innerHTML = movieStudio;
+    cell2.innerHTML = movieStudio;
+    cell3.innerHTML = movieStudio;
 }
 
 function detailsAlert(){
