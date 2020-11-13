@@ -23,7 +23,7 @@ public class MovieLibraryController {
     @GetMapping(value = "/testpage")
     public String getStudios(Model model) throws Exception {
         try (Session session = driver.session()){
-            model.addAttribute("testList",session.run("MATCH (a:Anime {title: 'K-ON!'}) OPTIONAL MATCH (a)<-[:CREATED]-(x) RETURN x").list(r -> r.get("x").asNode().get("name").asString()));
+            model.addAttribute("testList",session.run("MATCH (a:Anime {title: 'K-ON!'}) OPTIONAL MATCH (a)<-[:VOICED_IN]-(x) RETURN x").list(r -> r.get("x").asNode().get("name").asString()));
         }
         return "testpage";
     }
@@ -37,6 +37,8 @@ public class MovieLibraryController {
 
             if(movieTitle != null){
                 model.addAttribute("movieStudio", session.run("MATCH (a:Anime {title: '" + movieTitle +"'}) OPTIONAL MATCH (a)<-[:CREATED]-(x) RETURN x").list(r -> r.get("x").asNode().get("name").asString()));
+                model.addAttribute("movieDirector", session.run("MATCH (a:Anime {title: '" + movieTitle +"'}) OPTIONAL MATCH (a)<-[:DIRECTED]-(x) RETURN x").list(r -> r.get("x").asNode().get("name").asString()));
+                model.addAttribute("movieCast", session.run("MATCH (a:Anime {title: '" + movieTitle +"'}) OPTIONAL MATCH (a)<-[:VOICED_IN]-(x) RETURN x").list(r -> r.get("x").asNode().get("name").asString()));
                 System.out.println("str null");
             }
 
