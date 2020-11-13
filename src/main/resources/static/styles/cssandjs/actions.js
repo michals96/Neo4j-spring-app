@@ -1,4 +1,5 @@
 function appendToTable(moviesNames, moviesScores, moviesRelease){
+    document.getElementById("tablebody").innerHTML = "";
     var table = document.getElementById("tablebody");
 
     for (i = 0; i < moviesNames.length; i++) {
@@ -82,14 +83,14 @@ function getDetails(movieStudio, movieDirector, movieCast){
     cell2.innerHTML = movieDirector;
     cell3.innerHTML = movieCast[0];
 
-    for(i = 0; i<movieCast.length; i++){
-        var row = table.insertRow(i+1);
+    for(i = 1; i<movieCast.length; i++){
+        var row = table.insertRow(i);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         cell1.innerHTML = "";
         cell2.innerHTML = "";
-        cell3.innerHTML = movieCast[i+1];
+        cell3.innerHTML = movieCast[i];
     }
 }
 
