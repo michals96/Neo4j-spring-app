@@ -13,10 +13,6 @@
     var moviesRelease = /*[[${moviesRelease}]]*/;
     var movieDirector = /*[[${movieDirector}]]*/;
 </script>
-<form th:action="@{/}">
-    <input type="text" th:name="movieTitle"/>
-    <input type="submit"/>
-</form>
 <div role="navigation" class="navbar navbar-default navbar-static-top">
     <div class="row">
         <div class="col-sm col-md-3">
@@ -45,12 +41,12 @@
                     </form>
                     <form role="search_details" class="navbar-form" id="search4">
                         <div class="form-group">
-                            <input type="text" value="" placeholder="Get details by title" class="form-control" id="get_details" th:name="movieTitle"/>
+                            <input type="text" value="" placeholder="Get details by title" class="form-control" id="search_details" th:name="movieTitle"/>
                             <!--<input type="submit"/>//-->
                         </div>
                         <button th:action="@{/}" class="btn btn-default" type="submit" value="click" onclick="detailsAlert();">Submit</button>
                     </form>
-                    <form role="all" class="navbar-form" id="all">
+                    <form role="all" class="navbar-form" id="detailsall">
                         <button class="btn btn-default" type="button" value="click" onclick="getDetails(movieDirector);">Get details</button>
                     </form>
 
@@ -83,17 +79,17 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading" id="title">Details</div>
-            <div class="row">
-                <div class="col-sm col-md-1">
-                    <h1>Studio</h1>
-                    <div id="studio"></div>
-                </div>
-                <div class="col-md-5 col-sm">
-                    <h1>Cast</h1>
-                    <ul id="crew">
-                    </ul>
-                </div>
-            </div>
+            <table id="detailsresults" class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Studio</th>
+                    <th>Director</th>
+                    <th>Cast</th>
+                </tr>
+                </thead>
+                <tbody id="detailstablebody">
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
